@@ -1,3 +1,15 @@
+// Check API status and update status marker in the header
+
+let url = 'http://0.0.0.0:5001/api/v1/status/';
+$.get(url, function (data, status) {
+  console.log(data);
+  if (data.status === 'OK') {
+    $('div#api_status').addClass('available');
+  } else {
+    $('div#api_status').removeClass('available');
+  }
+});
+
 // listen for changes on each INPUT checkbox tag
 
 let checked = {};
